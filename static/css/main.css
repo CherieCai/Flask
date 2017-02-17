@@ -29,6 +29,7 @@ a {
   margin: 0 auto;
 }
 
+
 .pull-left {
   float: left;
 }
@@ -65,10 +66,11 @@ a {
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.23px;
-  padding: 12px 32px;
+  padding: 8px 16px;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+
 }
 
 .btn-secondary {
@@ -79,7 +81,7 @@ a {
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.23px;
-  padding: 12px 32px;
+  padding: 8px 16px;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
@@ -221,68 +223,24 @@ header {
  * Home
  */
 
-.section-tabs {
-  float: left;
-  width: 340px;
-}
-
-.section-tabs .places {
-  margin-top: 62px;
-  padding-right: 20px;
-}
-
-.section-tabs .places a,
-.section-tabs .places a:visited {
-  color: #3372df; 
+.home.home-head {
+  font-size: 100px;
+  font-family: 'Open Sans', sans-serif;
+  color: navy;
+  float:middle ;
 }
 
 
-.section-tabs article {
-  margin-bottom: 20px;
+.home nav {
+  float:middle ;
 }
 
-.section-tabs article .name {
-  font-size: 18px;
+
+.home ul {
+  position: relative;
 }
 
-.section-tabs article .walking-distance {
-  color: #6e6e6e;
-  font-size: 13px;
-  margin: 0;
-}
-
-.section-map {
-  float: right;
-  width: 660px;
-}
-
-.section-map .nav {
-  padding: 20px 0;
-}
-
-.section-map .form-group {
-  display: inline;
-}
-
-.section-map #address {
-  font-size: 14px;
-  margin-right: 10px;
-  width: 87%;
-}
-
-.section-map #submit {
-  font-size: 10px;
-  padding: 5px 15px;
-}
-
-#map {
-  height: 500px;
-}
-
-.leaflet-popup-content h3 {
-  margin: 0;
-}
-
-.leaflet-popup-content p {
-  margin: 10px 0 ;
+.home li {
+  position: relative;
+  font-size: 16px
 }

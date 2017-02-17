@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <main class = "container signup-section">
+  
+     <h1 class= "home-head">Benchmarking Reports </h1> 
+
+
+     <nav>
+      <ul>
+        <li><a href="http://worldhappiness.report/wp-content/uploads/sites/2/2016/03/HR-V1_web.pdf"><b>Full Report</b></a></li>
+        <li><a href="#"><b>Comparison Report</b></a></li>
+      </ul>
+      <div class="logout-btn"><a href="{{url_for('logout')}}">Log out</a></div>
+      </nav>
+
+
+    <section>
+      <div class = "section-content">
+  <h2> Enter company and plan details </h2>
+
+  <form method = "POST", action = "/home">
+  {{ form.hidden_tag() }}
+
+        <div class="form-group">
+          {{ form.FirmName.label }}
+
+          {% if form.FirmName.errors %}
+            {% for error in form.FirmName.errors %}
+              <p class="error-message">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
+
+          {{ form.FirmName}}
+        </div>
+
+        <div class="form-group">
+          {{ form.PlanName.label }}
+
+          {% if form.PlanName.errors %}
+            {% for error in form.PlanName.errors %}
+              <p class="error-message">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
+
+          {{ form.PlanName }}
+        </div>
+
+        <div class="form-group">
+          {{ form.IINDec.label }}
+
+          {% if form.IINDec.errors %}
+            {% for error in form.IINDec.errors %}
+              <p class="error-message">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
+
+          {{ form.IINDec }}
+        </div>
+
+
+        <div class="form-group">
+          {{ form.OONDec.label }}
+
+          {% if form.OONDec.errors %}
+            {% for error in form.OONDec.errors %}
+              <p class="error-message">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
+
+          {{ form.OONDec }}
+        </div>
+
+
+
+    {{ form.submit(class="btn-primary") }}
+    </form>
+
+  </div>
+    </section>
+
+
+
+  </main>
+{% endblock %}
+ 
