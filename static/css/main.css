@@ -206,6 +206,11 @@ header {
   top: 53px;
 }
 
+.forms{
+  margin: auto;
+  width: 40%;
+}
+
 .form-group {
   margin-bottom: 20px;
 }
