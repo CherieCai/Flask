@@ -9,6 +9,18 @@
   <form method = "POST" action = "/login">
   {{ form.hidden_tag() }}
 
+        <div class="form-group">
+                  {{ form.companyname.label }}
+
+                  {% if form.companyname.errors %}
+                    {% for error in form.companyname.errors %}
+                      <p class="error-message">{{ error }}</p>
+                    {% endfor %}
+                  {% endif %}
+
+                  {{ form.companyname }}
+        </div>
+        
 
         <div class="form-group">
           {{ form.email.label }}

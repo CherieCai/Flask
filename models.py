@@ -35,7 +35,10 @@ class User(db.Model):
     self.set_password(password)
      
   def set_password(self, password):
-    self.pwdhash = generate_password_hash(password)
+    self.pwshash = generate_password_hash(password)
 
   def check_password(self, password):
-    return check_password_hash(self.pwdhash, password)
+    return self.pwshash == password
+
+  def check_companyname(self, companyname):
+    return self.companyname == companyname

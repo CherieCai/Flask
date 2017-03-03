@@ -11,6 +11,7 @@ class SignupForm(Form):
 
 class LoginForm(Form):
 	"""docstring for ClassName"""
+	companyname = StringField('Company Name', validators=[DataRequired("Please enter your company name.")])
 	email = StringField('Email', validators=[DataRequired("Please enter your email address."), Email('Please enter an valid email address.')])
 	password = PasswordField('Password', validators= [DataRequired('Please enter your password.')])
 	submit = SubmitField('Log In')

@@ -8,8 +8,6 @@ import urllib
 app = Flask(__name__)
 
 
-'''
-
 server = 'btrwebsitedata.database.windows.net'
 database = 'WebsiteData'
 username = 'btr.helpdesk'
@@ -20,15 +18,13 @@ driver= 'ODBC Driver 13 for SQL Server'
 app.config['SQLALCHEMY_DATABASE_URI'] = "mssql+pyodbc://{}:{}@{}:{}/{}?driver={}".format(
 	username, password, server, port, db_name, driver) 
 
-'''
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/learningflask'  
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/learningflask'  
 	
 db.init_app(app)
-'''with app.app_context():
+with app.app_context():
 	user = User.query.filter_by(email="test@dayblink.com").first()
 	print(user.companyname)
-'''
+
 
 # Configure the user sign up form using CSRF 
 # Create an instance of secrete to generate a secure form in Flask
@@ -43,7 +39,7 @@ def index():
 def about():
   return render_template("about.html")
 
-
+'''
 #don't know between get and POST
 @app.route("/signup", methods=['GET','POST'])
 def signup():
@@ -64,6 +60,8 @@ def signup():
 
 	elif request.method=="GET":
 		return render_template('signup.html', form=form)
+'''
+
 
 @app.route("/home", methods=['GET','POST'])
 def home():
@@ -102,22 +100,31 @@ def login():
 
 	form = LoginForm()
 	if  request.method =="POST":
+		'''
 		if form.validate() ==False:
 			return render_template("login.html", form=form)
 		else:
 			return redirect(url_for('home'))
-		'''if form.validate() ==False:
+		'''
+		if not form.validate():
+			print('here')
 			return render_template("login.html", form=form)
 		else:
+			companyname = form.companyname.data
 			email = form.email.data
 			password = form.password.data
 			user = User.query.filter_by(email=email).first()
 
-			if user is not None and user.check_password(password):
+			print(user.companyname)
+
+			if user is not None and user.check_password(password) and user.check_companyname(companyname):
 				session['email'] = form.email.data
+				print('going to home')
+				return redirect(url_for('home'))
 			else:
+				print('authentication failed.')
 				return redirect(url_for('login'))
-		'''	
+		
 	elif request.method=='GET':
 		return render_template('login.html', form=form)
 
@@ -127,7 +134,7 @@ def compchoose():
 
 @app.route('/logout')
 def logout():
-	#session.pop('email', None)
+	session.pop('email', None)
 	return render_template("logout.html")
 
 
