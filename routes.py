@@ -23,7 +23,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "mssql+pyodbc://{}:{}@{}:{}/{}?driver={}
 db.init_app(app)
 with app.app_context():
 	user = User.query.filter_by(email="test@dayblink.com").first()
-	print(user.companyname)
+	assert user.companyname == 'BTR'
 
 
 # Configure the user sign up form using CSRF 
@@ -96,18 +96,12 @@ def home():
 @app.route('/login', methods=["GET", 'POST'])
 def login():
 	#if 'email' in session:
-		#return redirect(url_for('home'))
+		# return redirect(url_for('home'))
 
 	form = LoginForm()
 	if  request.method =="POST":
-		'''
-		if form.validate() ==False:
-			return render_template("login.html", form=form)
-		else:
-			return redirect(url_for('home'))
-		'''
 		if not form.validate():
-			print('here')
+			print("form not validated")
 			return render_template("login.html", form=form)
 		else:
 			companyname = form.companyname.data
@@ -115,11 +109,9 @@ def login():
 			password = form.password.data
 			user = User.query.filter_by(email=email).first()
 
-			print(user.companyname)
-
 			if user is not None and user.check_password(password) and user.check_companyname(companyname):
 				session['email'] = form.email.data
-				print('going to home')
+				print('going to home page')
 				return redirect(url_for('home'))
 			else:
 				print('authentication failed.')
