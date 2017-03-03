@@ -321,6 +321,26 @@ header {
   margin-bottom: 40px;
 }
 
+
+/*
+Comparison Group Banners
+*/
+
+
+#cover {
+  background: url("static/img/3.jpg") no-repeat center bottom;
+  height: 300px;
+  position: relative;
+  top: -55px;
+  width: 100%;
+  background-size: cover;
+  background-attachment:fixed;
+}
+
+.cover-content h1 {
+  background-color: rgba(255,255,0,0.2);
+}
+
 /*
 .home nav {
   float:middle ;

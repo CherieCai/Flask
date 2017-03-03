@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<body>
+
+  <div id="cover">
+    <div class="cover-content">
+      <h1>Benchmark Your Group with Others</h1>
+      <h2>Load the group information from database and compare it with a sample of 350 firms.</h2>
+    </div>
+  </div>
+
+<p>To compare an existing group to the benchmark, please select a company and a plan from from list below.</p>
+
+<form action="#">
+  <select name="groups">
+    <option value="Group A">Group A</option>
+    <option value="Group B">Group B</option>
+    <option value="Group C">Group C</option>
+    <option value="Group D">Group D</option>
+  </select>
+  <br><br>
+
+  <select name="plans">
+    <option value="Plan A">Plan A</option>
+    <option value="Plan B">Plan B</option>
+    <option value="Plan C">Plan C</option>
+    <option value="Plan D">Plan D</option>
+  </select>
+  <br><br>
+  <input type="submit">
+  <div class="logout-btn"><a href="{{url_for('home')}}"><button type="button">Return to the previous page.</button></a></div>
+
+</form>
+
+</body>
+
+
+
+
+
+  
+{% endblock %}

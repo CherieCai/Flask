@@ -121,6 +121,10 @@ def login():
 	elif request.method=='GET':
 		return render_template('login.html', form=form)
 
+@app.route("/compchoose")
+def compchoose():
+  return render_template("compchoose.html")
+
 @app.route('/logout')
 def logout():
 	#session.pop('email', None)
