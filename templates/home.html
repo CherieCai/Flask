@@ -1,86 +1,32 @@
 {% extends "layout.html" %}
 
 {% block content %}
-  <main class = "container signup-section">
-  
-     <h1 class= "home-head">Benchmarking Reports </h1> 
+<main class = "home">
+  <h1 class= "home-head">Benchmarking Reports </h1> 
+  <div class="logout-btn"><a href="{{url_for('index')}}"><button type="button" onclick="alert('Log out successful')">Log Out</button></a></div>
 
+  <div class="reports">
+    <div class="col">
+      <h2>Full Report</h2>
+      <img src="static/img/6.jpg">
+      <p>This is a full static report</p>
+      <a class="btn-default" href="http://worldhappiness.report/wp-content/uploads/sites/2/2016/03/HR-V1_web.pdf">Download the full report now</a>
+    </div>
 
-     <nav>
-      <ul>
-        <li><a href="http://worldhappiness.report/wp-content/uploads/sites/2/2016/03/HR-V1_web.pdf"><b>Full Report</b></a></li>
-        <li><a href="#"><b>Comparison Report</b></a></li>
-      </ul>
-      <div class="logout-btn"><a href="{{url_for('logout')}}">Log out</a></div>
-      </nav>
+    <div class="col">
+      <h2>Benchmark Your Group with Others</h2>
+      <img src="static/img/3.jpg">
+      <p>Compare an exisiting group to the benchmark</p>
+      <a class="btn-default" href="#">Learn More</a>
+    </div>
 
-
-    <section>
-      <div class = "section-content">
-  <h2> Enter company and plan details </h2>
-
-  <form method = "POST", action = "/home">
-  {{ form.hidden_tag() }}
-
-        <div class="form-group">
-          {{ form.FirmName.label }}
-
-          {% if form.FirmName.errors %}
-            {% for error in form.FirmName.errors %}
-              <p class="error-message">{{ error }}</p>
-            {% endfor %}
-          {% endif %}
-
-          {{ form.FirmName}}
-        </div>
-
-        <div class="form-group">
-          {{ form.PlanName.label }}
-
-          {% if form.PlanName.errors %}
-            {% for error in form.PlanName.errors %}
-              <p class="error-message">{{ error }}</p>
-            {% endfor %}
-          {% endif %}
-
-          {{ form.PlanName }}
-        </div>
-
-        <div class="form-group">
-          {{ form.IINDec.label }}
-
-          {% if form.IINDec.errors %}
-            {% for error in form.IINDec.errors %}
-              <p class="error-message">{{ error }}</p>
-            {% endfor %}
-          {% endif %}
-
-          {{ form.IINDec }}
-        </div>
-
-
-        <div class="form-group">
-          {{ form.OONDec.label }}
-
-          {% if form.OONDec.errors %}
-            {% for error in form.OONDec.errors %}
-              <p class="error-message">{{ error }}</p>
-            {% endfor %}
-          {% endif %}
-
-          {{ form.OONDec }}
-        </div>
-
-
-
-    {{ form.submit(class="btn-primary") }}
-    </form>
-
+    <div class="col">
+      <h2>Enter a new group to compare</h2>
+      <img src="static/img/7.jpg">
+      <p>Compare a new group by entering health benefit information</p>
+      <a class="btn-default" href="#">Learn More</a>
+    </div>
   </div>
-    </section>
 
-
-
-  </main>
+</main>
 {% endblock %}
- 

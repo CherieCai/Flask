@@ -2,6 +2,8 @@
  * General
  */
 
+
+
 html, body, h1 {
   margin: 0;
   padding: 0;
@@ -13,23 +15,50 @@ body {
 }
 
 h2 {
-  
   font-weight: 300;
-  
   letter-spacing: -1.2px;
 }
 
+
 a {
-  text-decoration: none;
   display: inline-block;
 }
 
+
+/*
 .container {
   width: 1000px;
+  height:200px;
   margin: 0 auto;
+
 }
 
 
+.banner_BTA{
+  height:150px;
+  width:500px;
+  padding-left: 100px;
+  float:left;
+  z-index: 999;
+}
+
+.banner_BTA img{
+  height:100px;
+  width:300px;
+  z-index: 1000;
+}
+
+.banner_social div{
+  height:100px;
+  width:300px;
+  padding-right: 100px;
+  float:right;
+}
+
+.banner_social li{
+  display: inline
+}
+*/
 .pull-left {
   float: left;
 }
@@ -42,20 +71,27 @@ a {
   clear: both;
 }
 
+.middle {
+  padding-top: 20%;
+  padding-left: 100px;
+}
+
 .section-content {
   color: #3a3a3a;
   float: left;
-  width: 340px;
+  width: 50%;
 }
 
-.section-device {
-  float: right;
-  position: relative;
-  top: 65px;
+.section-content h2{
+  font-weight:;
+  font-size: 28px;
 }
 
-.section-device img {
+
+.section-content img {
   width: 600px;
+  float: right;
+  padding: 50px;
 }
 
 .btn-primary {
@@ -90,12 +126,14 @@ a {
 
 
 /* 
- * Header
+ * Header, propably will not be useful
  */
+
+
 
 header {
   background-color: #fff;
-  padding: 25px 0;
+  padding: 5px 0;
 }
 
 .title {
@@ -133,11 +171,12 @@ header {
 }
 
 
+
 /*
  * Hero section 
  */
 
-.hero-section .section-content {
+/*.hero-section .section-content {
   position: relative;
   top: 100px;
 }
@@ -149,11 +188,14 @@ header {
 .hero-section .section-content .btn-primary {
   margin-right: 10px;
 }
+*/
+
 
 
 /*
- * Sign up
+ * Sign up and log in section
  */ 
+
 
 .signup-section .section-content h2 {
   font-size: 30px;
@@ -209,6 +251,7 @@ header {
  * Sign up
  */ 
 
+
 .about-section h2 {
   font-size: 30px;
   margin-bottom: 0;
@@ -223,14 +266,57 @@ header {
  * Home
  */
 
-.home.home-head {
-  font-size: 100px;
+
+
+.home-head {
+  text-align: center;
+  font-size: 28px;
   font-family: 'Open Sans', sans-serif;
   color: navy;
-  float:middle ;
+}
+
+.logout-btn{
+  float:right;
+  padding:10px 10px;
+}
+
+.reports{
+  padding-top: 80px;
+  padding-bottom: 100px;
 }
 
 
+
+.col {
+  width: 31%;
+  float: left;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  padding: 10px
+}
+
+
+.col img {
+  height: 100%;
+  width: 100%;
+}
+
+
+.col h2 {
+  font-weight: 60;
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+.reports.col p {
+  height:20px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 40px;
+}
+
+/*
 .home nav {
   float:middle ;
 }
@@ -244,3 +330,5 @@ header {
   position: relative;
   font-size: 16px
 }
+*/
+

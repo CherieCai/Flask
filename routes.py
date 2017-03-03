@@ -1,15 +1,36 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 from models import db, User
 from forms import SignupForm, LoginForm, CompForm
+import pyodbc
 
+import urllib
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/learningflask'
+
+'''
+
+server = 'btrwebsitedata.database.windows.net'
+database = 'WebsiteData'
+username = 'btr.helpdesk'
+password = 'Benchmark123'
+port = '1433'
+db_name = 'WebsiteData'
+driver= 'ODBC Driver 13 for SQL Server'
+app.config['SQLALCHEMY_DATABASE_URI'] = "mssql+pyodbc://{}:{}@{}:{}/{}?driver={}".format(
+	username, password, server, port, db_name, driver) 
+
+'''
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/learningflask'  
+	
 db.init_app(app)
+'''with app.app_context():
+	user = User.query.filter_by(email="test@dayblink.com").first()
+	print(user.companyname)
+'''
 
-
-# Configure the user sign up form using CSRF
+# Configure the user sign up form using CSRF 
 # Create an instance of secrete to generate a secure form in Flask
 app.secret_key = "development-key"
 

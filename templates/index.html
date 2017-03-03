@@ -1,23 +1,24 @@
 {% extends "layout.html" %}
 
 {% block content %}
-  <main class="hero-section">
-    <div class="container">
-      
-      <div class="section-content">
+<main class="hero-section">
+  <div class="container">
+
+    <div class="section-content">
+    <div class='middle'>
         <h2>A Comprehensive Market Comparison</h2>
-        <a href="{{ url_for('signup')}}" class="btn btn-primary"> Sign up</a>
         <a href="{{ url_for('login') }}" class="btn btn-primary">Log in</a>  
         <a href="{{ url_for('about') }}" class="btn btn-secondary">Learn more</a>
+    </div>
+    </div>
 
-      </div>
-
-      <div class="section-device">
+      <div class="section-content">
         <img src="static/img/index.jpg">
       </div>
-      
-      <div class="clearfix"></div>
+  
 
-    </div>
-  </main>
+
+
+  </div>
+</main>
 {% endblock %}
