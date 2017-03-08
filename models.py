@@ -1,14 +1,6 @@
 from flask.ext.sqlalchemy import SQLAlchemy
 from werkzeug import generate_password_hash, check_password_hash
 
-# create an instance called db in SQLAlchemy class
-
-'''
-engine = create_engine('postgresql://scott:tiger@localhost:5432/mydatabase')
-
-dialect+driver://username:password@host:port/database
-'''
-
 
 db = SQLAlchemy()
 

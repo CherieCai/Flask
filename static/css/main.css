@@ -328,10 +328,9 @@ Comparison Group Banners
 
 
 #cover {
-  background: url("static/img/3.jpg") no-repeat center bottom;
-  height: 300px;
+  background: url("/static/img/3.jpg") no-repeat center bottom;
+  height: 230px;
   position: relative;
-  top: -55px;
   width: 100%;
   background-size: cover;
   background-attachment:fixed;
