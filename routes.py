@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 from models import db, User
-from forms import SignupForm, LoginForm, CompForm
+from forms import  LoginForm, CompForm
 import pyodbc
 
 import urllib
@@ -39,64 +39,20 @@ def index():
 def about():
   return render_template("about.html")
 
-'''
-#don't know between get and POST
-@app.route("/signup", methods=['GET','POST'])
-def signup():
-	#if 'email' in session:
-		#return redirect(url_for('home'))
-
-	form = SignupForm()
-	if request.method=='POST':
-		if form.validate()==False:
-			return render_template('signup.html',form=form)
-		else:
-			#newuser= User(form.first_name.data, form.last_name.data, form.email.data, form.password.data)
-			#db.session.add(newuser)
-			#db.session.commit()
-
-			#session['email'] = newuser.email
-			return redirect(url_for('home'))
-
-	elif request.method=="GET":
-		return render_template('signup.html', form=form)
-'''
 
 
 @app.route("/home", methods=['GET','POST'])
 def home():
-	#if 'email' not in session:
-		#return redirect(url_for ('login'))
-	#else:
-	
-	form = CompForm()
-	if request.method=='POST':
-		if form.validate()==False:
-			return render_template('home.html',form=form)
-		else:
-			#newuser= User(form.first_name.data, form.last_name.data, form.email.data, form.password.data)
-			#db.session.add(newuser)
-			#db.session.commit()
+	if 'email' not in session:
+		return redirect(url_for ('login'))
+	else:
+		return render_template('home.html')
 
-			#session['email'] = newuser.email
-			return redirect(url_for('home'))
-
-	elif request.method=="GET":
-		return render_template('home.html', form=form)
-	'''
-		form = AddressForm()
-		if request.method == "POST":
-			if form.validate() == False:
-				redirect(url_for('home'))
-
-		elif request.method == "GET":
-			return render_template('home.html')
-			'''
 
 @app.route('/login', methods=["GET", 'POST'])
 def login():
-	#if 'email' in session:
-		# return redirect(url_for('home'))
+	if 'email' in session:
+		return redirect(url_for('home'))
 
 	form = LoginForm()
 	if  request.method =="POST":
@@ -122,7 +78,15 @@ def login():
 
 @app.route("/compchoose")
 def compchoose():
-  return render_template("compchoose.html")
+	if 'email' not in session:
+		return redirect(url_for ('login'))
+	else:
+ 		return render_template("compchoose.html")
+
+
+@app.route("/compchoose1")
+def compchoose1():
+ 		return render_template("compchoose1.html")
 
 @app.route('/logout')
 def logout():

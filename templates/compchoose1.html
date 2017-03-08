@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<body>
+	<div id="cover">
+		<div class="cover-content">
+			<h1 style="color:#282db8; position:relative; left:150px; top:5px; width:543px; height:40px;">Benchmark Your Group with Others</h1>
+			<h2 style="top:0; position:relative; left:105px; width:611px; height:50px; text-align:justify;">Load the group information from database and compare it with 500,000 data points.</h2>
+		</div>
+	</div>
+
+	<p>To compare an existing group to the benchmark, please select a company and a plan from the list below.</p>
+
+	<form action="#">
+		<select name="groups" style="position:relative; left:187px; top:34px;">
+			<option value="Group A">Group A</option>
+			<option value="Group B">Group B</option>
+			<option value="Group C">Group C</option>
+			<option value="Group D">Group D</option>
+		</select>
+		<br /><br />
+		<select name="plans" style="position:relative; left:422px; top:-6px;">
+			<option value="Plan A">Plan A</option>
+			<option value="Plan B">Plan B</option>
+			<option value="Plan C">Plan C</option>
+			<option value="Plan D">Plan D</option>
+		</select>
+		<br /><br />
+		<input type="submit" style="position:relative; left:188px; top:7px;" />
+		<div class="logout-btn">
+			<a href="{{url_for('home')}}">
+				<button type="button" style="position:relative; left:406px; top:-15px;">Return to the previous page.</button>
+			</a>
+		</div>
+		<div>
+			<img id="background" src="../static/img/5.jpg" style="position:relative; left:-3px; top:17px; display:inline-block; overflow:auto; float:none; min-height:250px; min-width:830px; background-color:#ffffff; padding:0; padding-left:0; width:830px; height:442px;" />
+		</div>
+	</form>
+</body>
+
+	
+{% endblock %}
