@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session, redirect, url_for
-from models import db, User
+from models import db, User, CompModel
 from forms import LoginForm, CompForm
 import pyodbc
 
@@ -18,7 +18,8 @@ driver = 'ODBC Driver 13 for SQL Server'
 app.config['SQLALCHEMY_DATABASE_URI'] = "mssql+pyodbc://{}:{}@{}:{}/{}?driver={}".format(
     username, password, server, port, db_name, driver)
 
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/learningflask'
+# app.config['SQLALCHEMY_DATABASE_URI'] =
+# 'postgresql://localhost/learningflask'
 
 db.init_app(app)
 with app.app_context():
@@ -95,6 +96,22 @@ def logout():
     session.pop('email', None)
     return render_template("logout.html")
 
+
+@app.route('/compenter', methods=["GET", 'POST'])
+def compenter():
+	form = CompForm()
+	if request.method == "POST":
+		if not form.validate():
+			print('invalid form')
+			return render_template('compenter.html', form=form)
+		else:
+			newform = CompModel(form.CompanyName.data, form.CompanySize.data, form.CompanyState.data)
+	    	db.session.add(newform)
+	    	db.session.commit()
+	    	return redirect(url_for('compenter'))
+
+	elif request.method == 'GET':
+		return render_template('compenter.html', form=form)
 
 if __name__ == "__main__":
     app.run()

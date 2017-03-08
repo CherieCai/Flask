@@ -43,3 +43,16 @@ class User(db.Model):
 
     def check_companyname(self, companyname):
         return self.companyname == companyname
+
+
+class CompModel(db.Model):
+    __tablename__ = 'PlanDetailEntry'
+    ID = db.Column(db.Integer, primary_key=True)
+    CompanyName = db.Column(db.String(100))
+    CompanySize = db.Column(db.Integer)
+    CompanyState = db.Column(db.String(2))
+
+    def __init__(self, CompanyName, CompanySize, CompanyState):
+        self.CompanyName = CompanyName
+        self.CompanySize = CompanySize
+        self.CompanyState = CompanyState

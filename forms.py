@@ -1,6 +1,6 @@
 from flask_wtf import Form
-from wtforms import StringField, IntegerField, PasswordField, SubmitField, FloatField, RadioFeild, SelectField
-from wtforms.validators import DataRequired, Email, Length
+from wtforms import StringField, IntegerField, PasswordField, SubmitField, FloatField, RadioField, SelectField
+from wtforms.validators import DataRequired, Email, Length, NumberRange
 from wtforms import validators
 '''
 class SignupForm(Form):
@@ -33,17 +33,17 @@ class CompForm(Form):
     # start date, end date need to fix!!
 
     CompanyName = StringField('Company Name')
-    CompanySize = IntegerField("Company Size", validators.Length(
-        min=0, message='Please enter a number that is larger than 0.'))
+    CompanySize = IntegerField("Company Size", validators=[
+    	NumberRange(min=0, message='Please enter a number that is larger than 0.')])
+    Statelist = [('AL', 'AL'), ('AK', 'AK'), ('AZ', 'AZ'), ('AR', 'AR'), ('CA', 'CA'), ('CO', 'CO'), ('CT', 'CT'), ('DE', 'DE'), ('FL', 'FL'),
+                 ('GA', 'GA'), ('HI', 'HI'), ('ID', 'ID'), ('IL', 'IL'), ('IN', 'IN'), ('IO', 'IO'), ('KS', 'KS'), ('KY', 'KY'), ('LA', 'LA'), ('ME', 'ME'),
+                 ('MD', 'MD'), ('MA', 'MA'), ('MI', 'MI'), ('MN', 'MN'), ('MS', 'MS'), ('MO', 'MO'), ('MT', 'MT'), ('NE', 'NE'), ('NV', 'NV'), ('NH', 'NH'),
+                 ('NJ', 'NJ'), ('NM', 'NM'), ('NY', 'NY'), ('NC', 'NC'), ('ND', 'ND'), ('OH', 'OH'), ('OK', 'OK'), ('OR', 'OR'), ('PA', 'PA'), ('RI', 'RI'), ('SC', 'SC'),
+                 ('SD', 'SD'), ('TN', 'TN'), ('TX', 'TX'), ('UT', 'UT'), ('VT', 'VT'), ('VA', 'VA'), ('WA', 'WA'), ('WV', 'WV'), ('WI', 'WI'), ('WY', 'WY')]
     CompanyState = SelectField('Comapny State', choices=Statelist)
-    Statelist = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL',
-                 'GA', 'HI', 'ID', 'IL', 'IN', 'IO', 'KS', 'KY', 'LA', 'ME',
-                 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH',
-                 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC',
-                 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']
-
     # SIC = SelectField('Industry/SIC code', choices = SIClist)
 
+    '''
     WaitRule = RadioField('Gender', choices=[(
         'Immediately following', 'Immediately following'), ('First of month following', 'First of month following')])
 
@@ -57,7 +57,7 @@ class CompForm(Form):
     MonthlyPremium = FloatField('Total Monthly Premium')
     EEMonthly = FloatField('Monthly Premium Contributed by Employee')
     ERMonthly = FloatField('Monthly Premium Contributed by Employer')
-
+	'''
     '''Carrier = StringField("Carrier Name")
 	In_Ded_Single = FloatField('In-network Deductible for Single Coverage')
 	In_Ded_Family = FloatField('In-network Deductible for Family Coverage')

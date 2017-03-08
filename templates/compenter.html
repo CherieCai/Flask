@@ -13,7 +13,35 @@
 
 <p>Please enter the data to generate a report.</p>
 
+<form method = "POST" action="/compenter">
+{{ form.hidden_tag() }}
+	<div class="compform">
+		{{ form.CompanyName.label }}
+		{% if form.CompanyName.errors %}
+                    {% for error in form.CompanyName.errors %}
+                      <p class="error-message">{{ error }}</p>
+                    {% endfor %}
+                  {% endif %}
+		{{ form.CompanyName }}
 
+		{{ form.CompanySize.label }}
+		{% if form.CompanySize.errors %}
+                    {% for error in form.CompanySize.errors %}
+                      <p class="error-message">{{ error }}</p>
+                    {% endfor %}
+                  {% endif %}
+		{{ form.CompanySize }}
+
+		{{ form.CompanyState.label }}
+		{% if form.CompanyState.errors %}
+                    {% for error in form.CompanyState.errors %}
+                      <p class="error-message">{{ error }}</p>
+                    {% endfor %}
+                  {% endif %}
+		{{ form.CompanyState }}
+	</div>
+{{ form.submit(class="btn-primary") }}
+</form>
 
 </body>
 
