@@ -11,122 +11,139 @@
     </div>
   </div>
 
-<p>Please enter the data to generate a report.</p>
 
-<form method = "POST" action="/compenter">
-{{ form.hidden_tag() }}
-	<div class="compform">
-		{{ form.CompanyName.label }}
-		{% if form.CompanyName.errors %}
-                    {% for error in form.CompanyName.errors %}
-                      <p class="error-message">{{ error }}</p>
-                    {% endfor %}
-                  {% endif %}
-		{{ form.CompanyName }}
+  <div class="barcol">
+   <h3 id='bartext'> BASIC INFO </h3>
+   <img id ='bar' src="/static/img/bar.png" />
+ </div>
 
-		{{ form.CompanySize.label }}
-		{% if form.CompanySize.errors %}
-                    {% for error in form.CompanySize.errors %}
-                      <p class="error-message">{{ error }}</p>
-                    {% endfor %}
-                  {% endif %}
-		{{ form.CompanySize }}
+ <form method = "POST" action="/compenter">
+  {{ form.hidden_tag() }}
+  <div class="compform">
 
-		 {{ form.CompanyState.label }}
-    	{% if form.CompanyState.errors %}
-                    {% for error in form.CompanyState.errors %}
-                      <p class="error-message">{{ error }}</p>
-                    {% endfor %}
-                  {% endif %}
-   		 {{ form.CompanyState }} 
+    <div class ='compsub'>
 
-   		 <br> <br>
-	    {{ form.WaitRule.label }}
-	    {% if form.WaitRule.errors %}
-	                    {% for error in form.WaitRule.errors %}
-	                      <p class="error-message">{{ error }}</p>
-	                    {% endfor %}
-	                  {% endif %}
-	    {{ form.WaitRule }}
-	    <br>
+      <h4> COMPANY INFO </h4>
+      {{ form.CompanyName.label }}
+      {% if form.CompanyName.errors %}
+      {% for error in form.CompanyName.errors %}
+      <p class="error-message">{{ error }}</p>
+      {% endfor %}
+      {% endif %}
+      {{ form.CompanyName }}
 
-    {{ form.FundingMethod.label }}
-    {% if form.FundingMethod.errors %}
-                    {% for error in form.FundingMethod.errors %}
-                      <p class="error-message">{{ error }}</p>
-                    {% endfor %}
-                  {% endif %}
-    {{ form.FundingMethod }}
+      {{ form.CompanySize.label }}
+      {% if form.CompanySize.errors %}
+      {% for error in form.CompanySize.errors %}
+      <p class="error-message">{{ error }}</p>
+      {% endfor %}
+      {% endif %}
+      {{ form.CompanySize }}
 
+      {{ form.CompanyState.label }}
+      {% if form.CompanyState.errors %}
+      {% for error in form.CompanyState.errors %}
+      <p class="error-message">{{ error }}</p>
+      {% endfor %}
+      {% endif %}
+      {{ form.CompanyState }} 
+      
+    </div>
     <br> <br>
 
-        {{ form.BenefitPlan.label }}
-    {% if form.BenefitPlan.errors %}
-                    {% for error in form.BenefitPlan.errors %}
-                      <p class="error-message">{{ error }}</p>
-                    {% endfor %}
-                  {% endif %}
-    {{ form.BenefitPlan }}
+    <div class='compsub'>
+     <h4> NEW HIRE BENEFIT POLICY </h4>
+     {{ form.WaitRule.label }}
+     {% if form.WaitRule.errors %}
+     {% for error in form.WaitRule.errors %}
+     <p class="error-message">{{ error }}</p>
+     {% endfor %}
+     {% endif %}
+     {{ form.WaitRule }}
+
+     {{ form.FundingMethod.label }}
+     {% if form.FundingMethod.errors %}
+     {% for error in form.FundingMethod.errors %}
+     <p class="error-message">{{ error }}</p>
+     {% endfor %}
+     {% endif %}
+     {{ form.FundingMethod }}
+   </div>
+
+   <br> <br>
+
+   <div class = 'compsub'>
+      <h4> BENEFIT PLAN INFO </h4>
+      {{ form.BenefitPlan.label }}
+      {% if form.BenefitPlan.errors %}
+      {% for error in form.BenefitPlan.errors %}
+      <p class="error-message">{{ error }}</p>
+      {% endfor %}
+      {% endif %}
+      {{ form.BenefitPlan }}
+    </div>
+
+  <br> <br>
+  <div class = 'compsub'>
+    <h4> MONTHLY PREMIUM </h4>
+    <div class = 'single'>
+     <h5> Single </h5>
+     {{ form.MonthlyPremium_Single.label }}
+     {% if form.MonthlyPremium_Single.errors %}
+     {% for error in form.MonthlyPremium_Single.errors %}
+     <p class="error-message">{{ error }}</p>
+     {% endfor %}
+     {% endif %}
+     {{ form.MonthlyPremium_Single }}
+
+     {{ form.EEMonthly_Single.label }}
+     {% if form.EEMonthly_Single.errors %}
+     {% for error in form.EEMonthly_Single.errors %}
+     <p class="error-message">{{ error }}</p>
+     {% endfor %}
+     {% endif %}
+     {{ form.EEMonthly_Single }}
 
 
-    <br> <br>
+     {{ form.ERMonthly_Single.label }}
+     {% if form.ERMonthly_Single.errors %}
+     {% for error in form.ERMonthly_Single.errors %}
+     <p class="error-message">{{ error }}</p>
+     {% endfor %}
+     {% endif %}
+     {{ form.ERMonthly_Single }}
+   </div>
 
-    {{ form.MonthlyPremium_Single.label }}
-    {% if form.MonthlyPremium_Single.errors %}
-                    {% for error in form.MonthlyPremium_Single.errors %}
-                      <p class="error-message">{{ error }}</p>
-                    {% endfor %}
-                  {% endif %}
-    {{ form.MonthlyPremium_Single }}
+   <div class = 'single'>
+      <h5> Family </h5>
+      {{ form.MonthlyPremium_Family.label }}
+      {% if form.MonthlyPremium_Family.errors %}
+      {% for error in form.MonthlyPremium_Family.errors %}
+      <p class="error-message">{{ error }}</p>
+      {% endfor %}
+      {% endif %}
+      {{ form.MonthlyPremium_Family }}
 
-    <br>
-        {{ form.EEMonthly_Single.label }}
-    {% if form.EEMonthly_Single.errors %}
-                    {% for error in form.EEMonthly_Single.errors %}
-                      <p class="error-message">{{ error }}</p>
-                    {% endfor %}
-                  {% endif %}
-    {{ form.EEMonthly_Single }}
-
-
-    {{ form.ERMonthly_Single.label }}
-    {% if form.ERMonthly_Single.errors %}
-                    {% for error in form.ERMonthly_Single.errors %}
-                      <p class="error-message">{{ error }}</p>
-                    {% endfor %}
-                  {% endif %}
-    {{ form.ERMonthly_Single }}
-
-    <br><br>
-       {{ form.MonthlyPremium_Family.label }}
-    {% if form.MonthlyPremium_Family.errors %}
-                    {% for error in form.MonthlyPremium_Family.errors %}
-                      <p class="error-message">{{ error }}</p>
-                    {% endfor %}
-                  {% endif %}
-    {{ form.MonthlyPremium_Family }}
-
-    {{ form.EEMonthly_Family.label }}
-    {% if form.EEMonthly_Family.errors %}
-                    {% for error in form.EEMonthly_Family.errors %}
-                      <p class="error-message">{{ error }}</p>
-                    {% endfor %}
-                  {% endif %}
-    {{ form.EEMonthly_Family }}
+      {{ form.EEMonthly_Family.label }}
+      {% if form.EEMonthly_Family.errors %}
+      {% for error in form.EEMonthly_Family.errors %}
+      <p class="error-message">{{ error }}</p>
+      {% endfor %}
+      {% endif %}
+      {{ form.EEMonthly_Family }}
 
 
-    {{ form.ERMonthly_Family.label }}
-    {% if form.ERMonthly_Family.errors %}
-                    {% for error in form.ERMonthly_Family.errors %}
-                      <p class="error-message">{{ error }}</p>
-                    {% endfor %}
-                  {% endif %}
-    {{ form.ERMonthly_Family }}
+      {{ form.ERMonthly_Family.label }}
+      {% if form.ERMonthly_Family.errors %}
+      {% for error in form.ERMonthly_Family.errors %}
+      <p class="error-message">{{ error }}</p>
+      {% endfor %}
+      {% endif %}
+      {{ form.ERMonthly_Family }}
+    </div>
 
-		
+  </div>
 
-
-	</div>
 {{ form.submit(class="btn-primary") }}
 
 
@@ -136,5 +153,5 @@
 
 
 
-  
+
 {% endblock %}
