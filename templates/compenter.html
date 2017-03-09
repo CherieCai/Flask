@@ -32,20 +32,107 @@
                   {% endif %}
 		{{ form.CompanySize }}
 
-		{{ form.CompanyState.label }}
-		{% if form.CompanyState.errors %}
+		 {{ form.CompanyState.label }}
+    	{% if form.CompanyState.errors %}
                     {% for error in form.CompanyState.errors %}
                       <p class="error-message">{{ error }}</p>
                     {% endfor %}
                   {% endif %}
-		{{ form.CompanyState }}
+   		 {{ form.CompanyState }} 
+
+   		 <br> <br>
+	    {{ form.WaitRule.label }}
+	    {% if form.WaitRule.errors %}
+	                    {% for error in form.WaitRule.errors %}
+	                      <p class="error-message">{{ error }}</p>
+	                    {% endfor %}
+	                  {% endif %}
+	    {{ form.WaitRule }}
+	    <br>
+
+    {{ form.FundingMethod.label }}
+    {% if form.FundingMethod.errors %}
+                    {% for error in form.FundingMethod.errors %}
+                      <p class="error-message">{{ error }}</p>
+                    {% endfor %}
+                  {% endif %}
+    {{ form.FundingMethod }}
+
+    <br> <br>
+
+        {{ form.BenefitPlan.label }}
+    {% if form.BenefitPlan.errors %}
+                    {% for error in form.BenefitPlan.errors %}
+                      <p class="error-message">{{ error }}</p>
+                    {% endfor %}
+                  {% endif %}
+    {{ form.BenefitPlan }}
+
+
+    <br> <br>
+
+    {{ form.MonthlyPremium_Single.label }}
+    {% if form.MonthlyPremium_Single.errors %}
+                    {% for error in form.MonthlyPremium_Single.errors %}
+                      <p class="error-message">{{ error }}</p>
+                    {% endfor %}
+                  {% endif %}
+    {{ form.MonthlyPremium_Single }}
+
+    <br>
+        {{ form.EEMonthly_Single.label }}
+    {% if form.EEMonthly_Single.errors %}
+                    {% for error in form.EEMonthly_Single.errors %}
+                      <p class="error-message">{{ error }}</p>
+                    {% endfor %}
+                  {% endif %}
+    {{ form.EEMonthly_Single }}
+
+
+    {{ form.ERMonthly_Single.label }}
+    {% if form.ERMonthly_Single.errors %}
+                    {% for error in form.ERMonthly_Single.errors %}
+                      <p class="error-message">{{ error }}</p>
+                    {% endfor %}
+                  {% endif %}
+    {{ form.ERMonthly_Single }}
+
+    <br><br>
+       {{ form.MonthlyPremium_Family.label }}
+    {% if form.MonthlyPremium_Family.errors %}
+                    {% for error in form.MonthlyPremium_Family.errors %}
+                      <p class="error-message">{{ error }}</p>
+                    {% endfor %}
+                  {% endif %}
+    {{ form.MonthlyPremium_Family }}
+
+    {{ form.EEMonthly_Family.label }}
+    {% if form.EEMonthly_Family.errors %}
+                    {% for error in form.EEMonthly_Family.errors %}
+                      <p class="error-message">{{ error }}</p>
+                    {% endfor %}
+                  {% endif %}
+    {{ form.EEMonthly_Family }}
+
+
+    {{ form.ERMonthly_Family.label }}
+    {% if form.ERMonthly_Family.errors %}
+                    {% for error in form.ERMonthly_Family.errors %}
+                      <p class="error-message">{{ error }}</p>
+                    {% endfor %}
+                  {% endif %}
+    {{ form.ERMonthly_Family }}
+
+		
+
+
 	</div>
 {{ form.submit(class="btn-primary") }}
+
+
 </form>
 
 </body>
-
-
 
 
 

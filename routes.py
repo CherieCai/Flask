@@ -105,9 +105,10 @@ def compenter():
 			print('invalid form')
 			return render_template('compenter.html', form=form)
 		else:
-			newform = CompModel(form.CompanyName.data, form.CompanySize.data, form.CompanyState.data)
+			newform = CompModel(form.CompanyName.data, form.CompanySize.data, form.CompanyState.data, form.WaitRule.data, form.FundingMethod.data, form.BenefitPlan.data, form.MonthlyPremium_Single.data, form.MonthlyPremium_Family.data, form.EEMonthly_Single.data, form.ERMonthly_Single.data, form.EEMonthly_Family.data, form.ERMonthly_Family.data)
 	    	db.session.add(newform)
 	    	db.session.commit()
+	    	print('entered data')
 	    	return redirect(url_for('compenter'))
 
 	elif request.method == 'GET':

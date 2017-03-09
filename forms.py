@@ -1,6 +1,6 @@
 from flask_wtf import Form
 from wtforms import StringField, IntegerField, PasswordField, SubmitField, FloatField, RadioField, SelectField
-from wtforms.validators import DataRequired, Email, Length, NumberRange
+from wtforms.validators import DataRequired, Email, Length, NumberRange, ValidationError
 from wtforms import validators
 '''
 class SignupForm(Form):
@@ -27,38 +27,44 @@ class LoginForm(Form):
 
 
 class CompForm(Form):
-	# docstring for ClassName
-	# PlanYear = IntegerField('Plan Year', validators.Length(min=2016, message='Please enter a plan year that is after 2016.'))
+        # docstring for ClassName
+        # PlanYear = IntegerField('Plan Year', validators.Length(min=2016, message='Please enter a plan year that is after 2016.'))
     # TODO: Need to Concatinates the start and finish Date
     # start date, end date need to fix!!
 
+    # Group Information
     CompanyName = StringField('Company Name')
     CompanySize = IntegerField("Company Size", validators=[
-    	NumberRange(min=0, message='Please enter a number that is larger than 0.')])
+        NumberRange(min=0, message='Please enter a number that is larger than 0.')])
     Statelist = [('AL', 'AL'), ('AK', 'AK'), ('AZ', 'AZ'), ('AR', 'AR'), ('CA', 'CA'), ('CO', 'CO'), ('CT', 'CT'), ('DE', 'DE'), ('FL', 'FL'),
-                 ('GA', 'GA'), ('HI', 'HI'), ('ID', 'ID'), ('IL', 'IL'), ('IN', 'IN'), ('IO', 'IO'), ('KS', 'KS'), ('KY', 'KY'), ('LA', 'LA'), ('ME', 'ME'),
-                 ('MD', 'MD'), ('MA', 'MA'), ('MI', 'MI'), ('MN', 'MN'), ('MS', 'MS'), ('MO', 'MO'), ('MT', 'MT'), ('NE', 'NE'), ('NV', 'NV'), ('NH', 'NH'),
-                 ('NJ', 'NJ'), ('NM', 'NM'), ('NY', 'NY'), ('NC', 'NC'), ('ND', 'ND'), ('OH', 'OH'), ('OK', 'OK'), ('OR', 'OR'), ('PA', 'PA'), ('RI', 'RI'), ('SC', 'SC'),
+                 ('GA', 'GA'), ('HI', 'HI'), ('ID', 'ID'), ('IL', 'IL'), ('IN', 'IN'), ('IO',
+                                                                                        'IO'), ('KS', 'KS'), ('KY', 'KY'), ('LA', 'LA'), ('ME', 'ME'),
+                 ('MD', 'MD'), ('MA', 'MA'), ('MI', 'MI'), ('MN', 'MN'), ('MS', 'MS'), ('MO',
+                                                                                        'MO'), ('MT', 'MT'), ('NE', 'NE'), ('NV', 'NV'), ('NH', 'NH'),
+                 ('NJ', 'NJ'), ('NM', 'NM'), ('NY', 'NY'), ('NC', 'NC'), ('ND', 'ND'), ('OH',
+                                                                                        'OH'), ('OK', 'OK'), ('OR', 'OR'), ('PA', 'PA'), ('RI', 'RI'), ('SC', 'SC'),
                  ('SD', 'SD'), ('TN', 'TN'), ('TX', 'TX'), ('UT', 'UT'), ('VT', 'VT'), ('VA', 'VA'), ('WA', 'WA'), ('WV', 'WV'), ('WI', 'WI'), ('WY', 'WY')]
     CompanyState = SelectField('Comapny State', choices=Statelist)
     # SIC = SelectField('Industry/SIC code', choices = SIClist)
-
-    '''
-    WaitRule = RadioField('Gender', choices=[(
-        'Immediately following', 'Immediately following'), ('First of month following', 'First of month following')])
-
-    Funding = StringField('Waiting Days')
-    WaitDays = SelectField('Funding Method', choices=[(
-        'Immediately following', 'Immediately following'), ('First of month following', 'First of month following')])
-
-    BenefitType = StringField('Type of Plan (e.g. Medical, Dental, Vision...')
+    # Group Benefit Policy
+    WaitRule = RadioField('Waiting Rule', choices=[('Immediately following', 'Immediately following'), ('First of month following', 'First of month following')])
+    # WaitDays = SelectField('Wait Days', choices=[(0, '0'), (30, '30'), (60, '60'), (90, '90'), (180, '180+')])
+    FundingMethod = RadioField('Funding Method', choices=[(
+        'Fully Insured', 'Fully Insured'), ('Self-Funded', 'Self-Funded')])
+    
     BenefitPlan = StringField('Plan Name')
+    MonthlyPremium_Single = FloatField('Total Monthly Premium for Single')
+    MonthlyPremium_Family = FloatField('Total Monthly Premium for Family')
+    EEMonthly_Single = FloatField('Employee Preimum Contribution for Single ')
+    ERMonthly_Single = FloatField('Employer Preimum Contribution for Single')
+    EEMonthly_Family = FloatField('Employee Preimum Contribution for Family')
+    ERMonthly_Family = FloatField('Employer Preimum Contribution for Family')
+    submit = SubmitField('submit')
 
-    MonthlyPremium = FloatField('Total Monthly Premium')
-    EEMonthly = FloatField('Monthly Premium Contributed by Employee')
-    ERMonthly = FloatField('Monthly Premium Contributed by Employer')
-	'''
-    '''Carrier = StringField("Carrier Name")
+
+'''  
+    Carrier = StringField("Carrier Name")
+    PlanType1 = SelectField('Type of Plan', choices=[('PPO', 'PPO'), ('HMO', 'HMO'), ('POS', 'POS'), ('CDHP', 'CDHP'), ('EPO', 'EPO'), ('FFS', 'FFS')])
 	In_Ded_Single = FloatField('In-network Deductible for Single Coverage')
 	In_Ded_Family = FloatField('In-network Deductible for Family Coverage')
 	# In_PerInsuredFlag_Family
@@ -122,4 +128,4 @@ class CompForm(Form):
 	Out_Copay_OutSurgery = FloatField('Out-of-network Out-patient Surgery Copay')
 	Out_Coins_OutSurgery= FloatField('Out-of-network Out-patient Surgery Co-insurance')
 '''
-    submit = SubmitField('submit')
+
