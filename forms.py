@@ -53,13 +53,13 @@ class CompForm(Form):
         'Fully Insured', 'Fully Insured'), ('Self-Funded', 'Self-Funded')])
     
     BenefitPlan = StringField('Plan Name')
-    MonthlyPremium_Single = FloatField('Total Monthly Premium for Single')
-    MonthlyPremium_Family = FloatField('Total Monthly Premium for Family')
-    EEMonthly_Single = FloatField('Employee Preimum Contribution for Single ')
-    ERMonthly_Single = FloatField('Employer Preimum Contribution for Single')
-    EEMonthly_Family = FloatField('Employee Preimum Contribution for Family')
-    ERMonthly_Family = FloatField('Employer Preimum Contribution for Family')
-    submit = SubmitField('submit')
+    MonthlyPremium_Single = FloatField('Total Monthly Premium')
+    MonthlyPremium_Family = FloatField('Total Monthly Premium')
+    EEMonthly_Single = FloatField('Employee Contribution')
+    ERMonthly_Single = FloatField('Employer Contribution')
+    EEMonthly_Family = FloatField('Employee Contribution')
+    ERMonthly_Family = FloatField('Employer Contribution')
+    submit = SubmitField('Next')
 
 
 '''  

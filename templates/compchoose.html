@@ -6,36 +6,42 @@
 
   <div id="cover">
     <div class="cover-content">
-      <h1>Benchmark Your Group with Others</h1>
+      <h1>COMPARATIVE ANALYSIS</h1>
       <h2>Load the group information from database and compare it with 500,000 data points.</h2>
     </div>
   </div>
 
-<p>To compare an existing group to the benchmark, please select a company and a plan from the list below.</p>
+  <div id="choose-middle">
+    <p>To compare an existing group to the benchmark, please select a company and a plan from the list below.</p>
+    <form action="#">
+      <h5> Group Name </h5>
+      <select name="groups">
+        <option value="Group A">Group A</option>
+        <option value="Group B">Group B</option>
+        <option value="Group C">Group C</option>
+        <option value="Group D">Group D</option>
+      </select>
+      <br><br>
 
-<form action="#">
-  <select name="groups">
-    <option value="Group A">Group A</option>
-    <option value="Group B">Group B</option>
-    <option value="Group C">Group C</option>
-    <option value="Group D">Group D</option>
-  </select>
-  <br><br>
+      <h5> Plan Name </h5>
+      <select name="plans">
+        <option value="Plan A">Plan A</option>
+        <option value="Plan B">Plan B</option>
+        <option value="Plan C">Plan C</option>
+        <option value="Plan D">Plan D</option>
+      </select>
+      <br><br>
+    </form>
+  </div>
 
-  <select name="plans">
-    <option value="Plan A">Plan A</option>
-    <option value="Plan B">Plan B</option>
-    <option value="Plan C">Plan C</option>
-    <option value="Plan D">Plan D</option>
-  </select>
-  <br><br>
-  <input type="submit">
-  <div class="logout-btn"><a href="{{url_for('home')}}"><button type="button">Return to the previous page.</button></a></div>
+  <input type="submit" Class = "btn-primary" id='next'>
+  <a href="{{ url_for('home') }}" class="btn logout-btn">Return to previous page</a> 
 
-</form>
+
+
 
 </body>
 
 
-  
+
 {% endblock %}

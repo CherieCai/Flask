@@ -86,11 +86,6 @@ def compchoose():
         return render_template("compchoose.html")
 
 
-@app.route("/compchoose1")
-def compchoose1():
-    return render_template("compchoose1.html")
-
-
 @app.route('/logout')
 def logout():
     session.pop('email', None)
@@ -99,20 +94,24 @@ def logout():
 
 @app.route('/compenter', methods=["GET", 'POST'])
 def compenter():
-	form = CompForm()
-	if request.method == "POST":
-		if not form.validate():
-			print('invalid form')
-			return render_template('compenter.html', form=form)
-		else:
-			newform = CompModel(form.CompanyName.data, form.CompanySize.data, form.CompanyState.data, form.WaitRule.data, form.FundingMethod.data, form.BenefitPlan.data, form.MonthlyPremium_Single.data, form.MonthlyPremium_Family.data, form.EEMonthly_Single.data, form.ERMonthly_Single.data, form.EEMonthly_Family.data, form.ERMonthly_Family.data)
-	    	db.session.add(newform)
-	    	db.session.commit()
-	    	print('entered data')
-	    	return redirect(url_for('compenter'))
+    if 'email' not in session:
+        return redirect(url_for('login'))
+    else:
+        form = CompForm()
+        if request.method == "POST":
+            if not form.validate():
+                print('invalid form')
+                return render_template('compenter.html', form=form)
+            else:
+                newform = CompModel(form.CompanyName.data, form.CompanySize.data, form.CompanyState.data, form.WaitRule.data, form.FundingMethod.data, form.BenefitPlan.data,
+                                    form.MonthlyPremium_Single.data, form.MonthlyPremium_Family.data, form.EEMonthly_Single.data, form.ERMonthly_Single.data, form.EEMonthly_Family.data, form.ERMonthly_Family.data)
+            db.session.add(newform)
+            db.session.commit()
+            print('entered data')
+            return redirect(url_for('compenter'))
 
-	elif request.method == 'GET':
-		return render_template('compenter.html', form=form)
+        elif request.method == 'GET':
+            return render_template('compenter.html', form=form)
 
 if __name__ == "__main__":
     app.run()
